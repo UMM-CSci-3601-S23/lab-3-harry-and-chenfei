@@ -30,6 +30,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { LayoutModule } from '@angular/cdk/layout';
 import { UserCardComponent } from './users/user-card.component';
 import { UserProfileComponent } from './users/user-profile.component';
+import { TodoComponent } from './todos/todo.component';
+import { TodoListComponent } from './todos/todo-list.component';
 
 const MATERIAL_MODULES: any[] = [
   MatListModule,
@@ -57,6 +59,8 @@ const MATERIAL_MODULES: any[] = [
     UserListComponent,
     UserCardComponent,
     UserProfileComponent,
+    TodoComponent,
+    TodoListComponent,
   ],
   imports: [
     BrowserModule,
