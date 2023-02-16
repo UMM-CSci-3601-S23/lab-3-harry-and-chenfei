@@ -8,6 +8,7 @@ import { UserProfileComponent } from './users/user-profile.component';
 const routes: Routes = [
   {path: '', component: HomeComponent, title: 'Home'},
   {path: 'users', component: UserListComponent, title: 'Users'},
+  //{path:'todos', component: TodoListComponent, title:'Todos'},
   {path: 'users/:id', component: UserProfileComponent, title: 'User Profile'}
 ];
 
