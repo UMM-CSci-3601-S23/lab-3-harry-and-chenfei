@@ -51,7 +51,7 @@ export class TodoListComponent implements OnInit {
     }, err => {
       // If there was an error getting the users, log
       // the problem and display a message.
-      console.error('We couldn\'t get the list of users; the server might be down');
+      console.error('We couldn\'t get the list of todos; the server might be down');
       this.snackBar.open(
         'Problem contacting the server – try again',
         'OK',
@@ -66,7 +66,7 @@ export class TodoListComponent implements OnInit {
    */
   public updateFilter() {
     this.filteredTodos = this.todoService.filterTodos(
-      this.serverFilteredTodos, { owner: this.todoOwner, body: this.todoBody }
+      this.serverFilteredTodos, { owner: this.todoOwner, body: this.todoBody}
     );
   }
 
