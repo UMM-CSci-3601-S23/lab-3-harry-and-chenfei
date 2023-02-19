@@ -26,12 +26,14 @@
         <div class="flex-row gap-10 flex-wrap">
           <!-- Examples of filtering on the server -->
 
-          <!--mat-form-field class="input-field">
+          <mat-form-field class="input-field">
             <mat-label>Status</mat-label>
-            <input matInput data-test="todoStatusInput" type="boolean" placeholder="Filter by status"
-            false="incomplete" true="complete" [(ngModel)]="todoStatus" (input)="getTodosFromServer()">
+            <input matInput data-test="todoStatusInput" type="boolean" placeholder="Filter by status">
+            <mat-option>--</mat-option>
+            <mat-option value="incomplete">incomplete</mat-option>
+            <mat-option value="complete">complete</mat-option>
             <mat-hint>Filtered on server</mat-hint>
-          </mat-form-field-->
+          </mat-form-field>
 
           <mat-form-field class="input-field">
             <mat-label>Category</mat-label>
@@ -101,21 +103,3 @@
   </ng-template>
 
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
