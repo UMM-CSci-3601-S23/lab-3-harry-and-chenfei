@@ -86,7 +86,7 @@ export class TodoService {
    * @param filters the map of key-value pairs used for the filtering
    * @returns an array of `Users` matching the given filters
    */
-  filterTodos(todos: Todo[], filters: {owner?: string; body?: string }): Todo[] {
+  filterTodos(todos: Todo[], filters: {owner?: string; body?: string; status?: string; category?: string}): Todo[] {
     let filteredTodos = todos;
 
     if (filters.owner) {
@@ -98,7 +98,19 @@ export class TodoService {
       filters.body = filters.body.toLowerCase();
       filteredTodos = filteredTodos.filter(todo => todo.body.toLowerCase().indexOf(filters.body) !== -1);
     }
-
+    if (filters.status) {
+      filters.status = filters.status.toLowerCase();
+      if (filters.status === 'incomplete'){
+        filteredTodos = filteredTodos.filter(todo => !todo.status);
+    }
+      else{
+        filteredTodos = filteredTodos.filter(todo => todo.status);
+      }
+    }
+    if (filters.category){
+      filters.category= filters.category.toLowerCase();
+      filteredTodos = filteredTodos.filter(todo => todo.category.toLowerCase().indexOf(filters.category.toString()) !== -1);
+    }
     return filteredTodos;
   }
 }
