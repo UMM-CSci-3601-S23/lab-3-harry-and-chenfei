@@ -28,23 +28,25 @@
 
           <mat-form-field class="input-field">
             <mat-label>Status</mat-label>
-            <input matInput data-test="todoStatusInput" type="boolean" placeholder="Filter by status">
+            <mat-select (selectionChange)="updateFilter()" [(ngModel)]="todoStatus" data-test="todoStatusSelect">
+
             <mat-option>--</mat-option>
-            <mat-option value="incomplete">incomplete</mat-option>
-            <mat-option value="complete">complete</mat-option>
-            <mat-hint>Filtered on server</mat-hint>
+            <mat-option value='incomplete'>incomplete</mat-option>
+            <mat-option value='complete'>complete</mat-option>
+            </mat-select>
+            <mat-hint>Filtered on client</mat-hint>
           </mat-form-field>
 
           <mat-form-field class="input-field">
             <mat-label>Category</mat-label>
-            <mat-select (selectionChange)="getTodosFromServer()" [(ngModel)]="todoCategory" data-test="todoCategorySelect">
+            <mat-select (selectionChange)="updateFilter()" [(ngModel)]="todoCategory" data-test="todoCategorySelect">
               <mat-option>--</mat-option>
               <mat-option value="software design">Software Design</mat-option>
               <mat-option value="homework">Homework</mat-option>
               <mat-option value="video games">Video games</mat-option>
               <mat-option value="groceries">Groceries</mat-option>
             </mat-select>
-            <mat-hint>Filtered on server</mat-hint>
+            <mat-hint>Filtered on client</mat-hint>
           </mat-form-field>
         </div>
 
@@ -81,6 +83,7 @@
               <!--img matListItemAvatar [src]="user.avatar" *ngIf="this.user.avatar"-->
               <span matListItemTitle mat-line class="todo-list-owner"> {{todo.owner}} </span>
               <span matListItemLine class="todo-list-category"> {{todo.category}} </span>
+              <span matListItemLine class="todo-list-body"> {{todo.body}} </span>
             </a>
           </mat-nav-list>
         </mat-card-content>
