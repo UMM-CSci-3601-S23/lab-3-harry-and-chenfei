@@ -6,13 +6,13 @@ import { TodoService } from './todo.service';
 @Component({
   selector: 'app-todo-list',
   templateUrl: './todo-list.component.html',
-  styleUrls: ['./todo-list.component.scss']
+  styleUrls: ['./todo-list.component.scss'],
+  providers: []
 })
 export class TodoListComponent implements OnInit {
   // These are public so that tests can reference them (.spec.ts)
   public serverFilteredTodos: Todo[];
   public filteredTodos: Todo[];
-
   public todoOwner: string;
   public todoStatus: string;
   public todoBody: string;
@@ -28,7 +28,7 @@ export class TodoListComponent implements OnInit {
    * @param userService the `UserService` used to get users from the server
    * @param snackBar the `MatSnackBar` used to display feedback
    */
-  constructor(private todoService: TodoService, private snackBar: MatSnackBar) {
+  constructor(public todoService: TodoService, private snackBar: MatSnackBar) {
     // Nothing here – everything is in the injection parameters.
   }
 
