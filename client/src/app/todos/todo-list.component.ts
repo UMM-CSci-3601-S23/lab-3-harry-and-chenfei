@@ -18,7 +18,7 @@ export class TodoListComponent implements OnInit {
   public todoBody: string;
   public todoCategory: TodoCategory;
   public viewType: 'card' | 'list' = 'card';
-
+  public todoLimit: number;
 
   /**
  serverFilteredTodos: Todo[];  /**
@@ -65,7 +65,8 @@ export class TodoListComponent implements OnInit {
    */
   public updateFilter() {
     this.filteredTodos = this.todoService.filterTodos(
-      this.serverFilteredTodos, { owner: this.todoOwner, body: this.todoBody, status: this.todoStatus, category: this.todoCategory}
+      this.serverFilteredTodos, { limit: this.todoLimit, owner: this.todoOwner, body: this.todoBody, status: this.todoStatus,
+        category: this.todoCategory}
     );
   }
 
