@@ -52,7 +52,7 @@
 
         <mat-form-field class="input-field">
           <mat-label>Limit</mat-label>
-          <input matInput data-test="todoLimit" type="number" placeholder="Maximum todos to display"
+          <input matInput data-test="todoLimitInput" type="number" placeholder="Maximum todos to display"
           min="1" max="200" [(ngModel)]="todoLimit" (input)="updateFilter()">
           <mat-hint>Filtered on client</mat-hint>
         </mat-form-field>
@@ -92,6 +92,7 @@
               <span matListItemTitle mat-line class="todo-list-owner"> {{todo.owner}} </span>
               <span matListItemLine class="todo-list-category"> {{todo.category}} </span>
               <span matListItemLine class="todo-list-body"> {{todo.body}} </span>
+              <!--span matListItemLine class="todo-list-status"> {{todo.status}} </span-->
             </a>
           </mat-nav-list>
         </mat-card-content>
