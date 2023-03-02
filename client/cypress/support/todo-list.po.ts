@@ -65,5 +65,20 @@ export class TodoListPage {
    *
    * @param value The role *value* to select, this is what's found in the mat-option "value" attribute.
    */
+  selectCategory(value: TodoCategory) {
+    // Find and click the drop down
+    return cy.get('[data-test=todoCategorySelect]').click()
+      // Select and click the desired value from the resulting menu
+      .get(`mat-option[value="${value}"]`).click();
+      // NOTE: THIS CHAINING MIGHT BE FRAGILE (due to a 'click' followed by a 'get')
+  }
+
+  selectStatus(value: string) {
+    // Find and click the drop down
+    return cy.get('[data-test=todoStatusSelect]').click()
+      // Select and click the desired value from the resulting menu
+      .get(`mat-option[value="${value}"]`).click();
+      // NOTE: THIS CHAINING MIGHT BE FRAGILE (due to a 'click' followed by a 'get')
+  }
 
 }
